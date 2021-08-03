@@ -64,7 +64,7 @@ additional benefits of using RStudio as you cover the lessons.
 
 >## What about this R app should I use that?
 >
->Depending on what operating system youre using you will notice in your >programs or application menu that there is R Studio and another software >that is also R. Currently application icons look like this: 
+>Depending on what operating system youre using you will notice in your programs or application menu that there is R Studio and another software that is also R. Currently application icons look like this: 
 >
 ><img src="../fig/notRuseRstudio.png" alt="r_and_rstudio_icons" style="width: 600px;"/>
 >
@@ -129,7 +129,7 @@ called an **RStudio Project**. An RStudio project allows you to more easily:
 
 <img src="../fig/new_project_window.png" alt="rstudio default session" style="width: 600px;"/>
 
-2. In the window that opens select **New Directory**, then **New Project**. For "Directory name:" enter **post-docs_genomics_r**. For "Create project as subdirectory of", click <kbd>Browse...</kbd> and then click <kbd>Choose</kbd> which will select your Documents or Desktop directory `Documents` or `Desktop`.
+2. In the window that opens select **New Directory**, then **New Project**. For "Directory name:" enter **post-docs_genomics_r**. For "Create project as subdirectory of", click <kbd>Browse...</kbd> and then click <kbd>Choose</kbd> which will select your `Documents` or `Desktop` directory.
 
 3. Finally click <kbd>Create Project</kbd>. In the "Files" tab of your output
 pane (more about the RStudio layout in a moment), you should see an RStudio
@@ -167,7 +167,7 @@ is written. Then click the <KBD>Run</KBD> button that is just above the first
 line of your script in the header of the Source pane.
 
 
-In the console, we expect to see the following output*:
+In the console, we expect to see the following output:
 
 ~~~
 [1] "~/Documents/post-docs_genomics_r"
@@ -178,10 +178,7 @@ In the console, we expect to see the following output*:
 above the output in blue.
 
 Since we will be learning several commands, we may already want to keep some
-short notes in our script to explain the purpose of the command. Entering a `#`
-before any line in an R script turns that line into a comment, which R will
-not try to interpret as code. Edit your script to include a comment on the
-purpose of commands you are learning, e.g.:
+short notes in our script to explain the purpose of the command. Entering a `#` , or using the keyboard short cut <KBD>Cntrl</KBD> + <KBD>Shift</KBD> + <KBD>C</KBD>, before any line in an R script turns that line into a comment, which R will not try to interpret as code. Edit your script to include a comment on the purpose of commands you are learning, e.g.:
 
 
 ~~~
@@ -202,9 +199,9 @@ getwd()
 > {: .solution}
 {: .challenge}
 
-For the purposes of this exercise we want you to be in the directory `"/home/dcuser/R_data"`.
-What if you weren't? You can set your home directory using the `setwd()`
-command. Enter this command in your script, but *don't run* this yet.
+Next, lets create a folder in `Documents` or `Desktop` using the RStudio <KBD>Files</KBD> tab in `pane 4` using the <KBD>New Folder</KBD> button. We will call the folder: `R_data`. 
+
+For the purposes of this exercise we want you to be in the directory `"~/Documents/R_data"`. What if you weren't? You can set your working directory using the `setwd()` command. Enter this command in your script, but *don't run* this yet.
 
 
 ~~~
@@ -214,16 +211,13 @@ setwd()
 {: .language-r}
 
 You may have guessed, you need to tell the `setwd()` command
-what directory you want to set as your working directory. To do so, inside of
-the parentheses, open a set of quotes. Inside the quotes enter a `/` which is
-the root directory for Linux. Next, use the <KBD>Tab</KBD> key, to take
-advantage of RStudio's Tab-autocompletion method, to select `home`, `dcuser`,
-and `dc_genomics_r` directory. The path in your script should look like this:
+what directory you want to set as your working directory. To do so, inside of the parentheses, open a set of quotes. Inside the quotes enter a `~/` which is the home directory for Linux, Mac and Windows. Next, use the <KBD>Tab</KBD> key, to take advantage of RStudio's Tab-autocompletion method, to select `Documents` or `Desktop` depending on what you designated,
+and the new folder `R_data` you just created. The path in your script should look like this:
 
 
 ~~~
 # This sets the working directory
-setwd("/home/dcuser/dc_genomics_r")
+setwd("~/Documents/R_data")
 ~~~
 {: .language-r}
 
@@ -247,6 +241,15 @@ working directory is the first step to analyzing your data.
 > and other R tips.
 {: .callout}
 
+>## Exercise
+>
+>Use setwd() to set the working directory back to the project directory you created in the "Create and RStudio Project" section. 
+>
+>> ## Solution
+>> In your script write setwd("~/Documents/post-docs_genomics_r") or setwd("~/Desktop/post-docs_genomics_r") and hit <KBD>Control</KBD> + <KBD>Enter</KBD>. You can also write that in the console. Notice that you need to provide an absolute path to the directory/folder you are going to set the working directory to. 
+> {: .solution}
+{: .challenge}
+
 ## Using functions in R, without needing to master them
 
 A function in R (or any computing language) is a short
@@ -266,8 +269,7 @@ any R script.
 >
 >> ## Solution
 >> - `dir()` # Lists files in the working directory
->> - `sessionInfo()` # Gives the version of R and additional info including
->>    on attached packages
+>> - `sessionInfo()` # Gives the version of R and additional info including on attached packages
 >> - `date()` # Gives the current date
 >> - `Sys.time()` # Gives the current time
 >>
@@ -313,7 +315,7 @@ name:
 ~~~
 {: .language-r}
 
-The "Help" tab will show you information (often, too much information). You
+The <KBD>Help</KBD> tab in `pane 4` will show you information (often, too much information). You
 will slowly learn how to read and make sense of help files. Checking the "Usage" or "Examples"
 headings is often a good place to look first. If you look under "Arguments," we
 also see what arguments we can pass to this function to modify its behavior.
