@@ -243,10 +243,10 @@ working directory is the first step to analyzing your data.
 
 >## Exercise
 >
->Use setwd() to set the working directory back to the project directory you created in the "Create and RStudio Project" section. 
+>Use `setwd()` to set the working directory back to the project directory you created in the "Create and RStudio Project" section. 
 >
 >> ## Solution
->> In your script write setwd("~/Documents/post-docs_genomics_r") or setwd("~/Desktop/post-docs_genomics_r") and hit <KBD>Control</KBD> + <KBD>Enter</KBD>. You can also write that in the console. Notice that you need to provide an absolute path to the directory/folder you are going to set the working directory to. 
+>> In your script write `setwd("~/Documents/post-docs_genomics_r")` or `setwd("~/Desktop/post-docs_genomics_r")` and hit <KBD>Control</KBD> + <KBD>Enter</KBD>. You can also write that in the console. Notice that you need to provide an absolute path to the directory/folder you are going to set the working directory to. 
 > {: .solution}
 {: .challenge}
 
@@ -416,7 +416,7 @@ the `help.search()` function.
 {: .challenge}
 
 
-We will discuss more on where to look for the libraries and packages that contain functions you want to use. For now, be aware that two important ones are [CRAN](https://cran.r-project.org/) - the main repository for R, and [Bioconductor](http://bioconductor.org/) - a popular repository for bioinformatics-related R packages.
+We will discuss more on where to look for the libraries and packages that contain functions you want to use. For now, be aware that two important ones are [CRAN](https://cran.r-project.org/) - the main repository for R, and [Bioconductor](http://bioconductor.org/) - a popular repository for bioinformatics-related R packages which we will learn more about later.
 
 ## RStudio contextual help
 
