@@ -21,10 +21,8 @@ objectives:
 
 keypoints:
 - "R is a powerful, popular open-source scripting language"
-- "You can customize the layout of RStudio, and use the project feature to manage
-  the files and packages used in your analysis"
-- "RStudio allows you to run R in an easy-to-use interface and makes
-  it easy to find help"
+- "You can customize the layout of RStudio, and use the project feature to manage the files and packages used in your analysis"
+- "RStudio allows you to run R in an easy-to-use interface and makes it easy to find help"
 source: Rmd
 ---
 
@@ -32,149 +30,50 @@ source: Rmd
 
 ## Getting ready to use R for the first time
 
-In this lesson we will take you through the very first things you need to get
-R working.
-
-> ## Tip: This lesson works best on the cloud
->
-> Remember, these lessons assume we are using the pre-configured virtual machine
-> instances provided to you at a genomics workshop. Much of this work could be
-> done on your laptop, but we use instances to simplify workshop setup
-> requirements, and to get you familiar with using the cloud (a common
-> requirement for working with big data).
-> Visit the [Genomics Workshop setup page](http://www.datacarpentry.org/genomics-workshop/setup.html)
-> for details on getting this instance running on your own, or for the info you
-> need to do this on your own computer.
-{: .callout}
-
+In this lesson we will take you through the very first things you need to get R working.
 
 ## A Brief History of R
 
 [R](https://en.wikipedia.org/wiki/R_(programming_language)) has been around
-since 1995, and was created by Ross Ihaka and Robert Gentleman at the University
-of Auckland, New Zealand. R is based off the S programming language developed
-at Bell Labs and was developed to teach intro statistics. See this [slide deck](https://www.stat.auckland.ac.nz/~ihaka/downloads/Massey.pdf)
-by Ross Ihaka for more info on the subject.
+since 1995, and was created by Ross Ihaka and Robert Gentleman at the University of Auckland, New Zealand. R is based off the S programming language developed at Bell Labs and was developed to teach intro statistics. See this [slide deck](https://www.stat.auckland.ac.nz/~ihaka/downloads/Massey.pdf) by Ross Ihaka for more info on the subject.
 
 ## Advantages of using R
 
-At more than 20 years old, R is fairly mature and [growing in popularity](https://www.tiobe.com/tiobe-index/r/). However, programming isn’t a popularity contest. Here are key advantages of
-analyzing data in R:
+At more than 20 years old, R is fairly mature and [growing in popularity](https://www.tiobe.com/tiobe-index/r/). However, programming isn’t a popularity contest. Here are key advantages of analyzing data in R:
 
  - **R is [open source](https://en.wikipedia.org/wiki/Open-source_software)**.
-   This means R is free - an advantage if you are at an institution where you
-   have to pay for your own MATLAB or SAS license. Open source, is important to
-   your colleagues in parts of the world where expensive software in
-   inaccessible. It also means that R is actively developed by a community (see
-   [r-project.org](https://www.r-project.org/)),
-   and there are regular updates.
- - **R is widely used**. Ok, maybe programming is a popularity contest. Because,
-   R is used in many areas (not just bioinformatics), you are more likely to
-   find help online when you need it. Chances are, almost any error message you
-   run into, someone else has already experienced.
-- **R is powerful**. R runs on multiple platforms (Windows/MacOS/Linux). It can
-   work with much larger datasets than popular spreadsheet programs like
-   Microsoft Excel, and because of its scripting capabilities is far more
-   reproducible. Also, there are thousands of available software packages for
-   science, including genomics and other areas of life science.
+   This means R is free - an advantage if you are at an institution where you have to pay for your own MATLAB or SAS license. Open source, is important to your colleagues in parts of the world where expensive software is inaccessible. Being open source it also means that R is actively developed by a community (see [r-project.org](https://www.r-project.org/)), and there are regular updates.
+ 
+ - **R is widely used**. Ok, maybe programming is a popularity contest.         Because, R is used in many areas (not just bioinformatics), you are more likely to find help online when you need it. Chances are, almost any error message you run into, someone else has already experienced.
+
+- **R is powerful**. R runs on multiple platforms (Windows/MacOS/Linux). It can work with much larger datasets than popular spreadsheet programs like Microsoft Excel, and because of its scripting capabilities is far more reproducible. Also, there are thousands of available software packages for science, including genomics and other areas of life science.
 
 > ## Discussion: Your experience
 >
-> What has motivated you to learn R? Have you had a research question for which
-> spreadsheet programs such as Excel have proven difficult to use, or where the
-> size of the data set created issues?
+> What has motivated you to learn R? Have you had a research question for which spreadsheet programs such as Excel have proven difficult to use, or where the size of the data set created issues?
 {: .discussion}
 
 
-## Introducing RStudio Server
+## Introducing RStudio
 
 In these lessons, we will be making use of a software called [RStudio](https://www.rstudio.com/products/RStudio/),
 an [Integrated Development Environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment).
 RStudio, like most IDEs, provides a graphical interface to R, making it more
 user-friendly, and providing dozens of useful features. We will introduce
-additional benefits of using RStudio as you cover the lessons. In this case,
-we are specifically using [RStudio Server](https://www.rstudio.com/products/RStudio/#Server),
-a version of RStudio that can be accessed in your web browser. RStudio Server
-has the same features of the Desktop version of RStudio you could download as
-standalone software.
+additional benefits of using RStudio as you cover the lessons. 
 
-## Log on to RStudio Server
-
-Open a web browser and enter the IP address of your instance
-(provided by your instructors), followed by
-`:8787`. For example, if your IP address was 123.45.67.89 your URL would be
-
-```
-http://123.45.67.89:8787
-```
-
-> ## Tip: Make sure there are no spaces before or after your URL or
-> your web browser may interpret it as a search query.
+>## What about this R app should I use that?
+>
+>Depending on what operating system youre using you will notice in your >programs or application menu that there is R Studio and another software >that is also R. Currently application icons look like this: 
+>
+><img src="../fig/notRuseRstudio.png" alt="r_and_rstudio_icons" style="width: 600px;"/>
+>
+>In case you end up launching R and not R Studio you will see an application window that looks like this: 
+>
+><img src="../fig/Rconsole.png" alt="r_console" style="width: 600px;"/>
+>
+>Go ahead and close it out. While there is nothing inherently wrong with using this. The features and benefits RStudio provides for programming in R significantly outweigh those of using the R console. Its recommended that you use RStudio. 
 {: .callout}
-
-You should now be looking at a page that will allow you to login to the RStudio
-server:
-
-<img src="../fig/rstudio_login_screen.png" alt="rstudio default session" style="width: 1000px;"/>
-
-Enter your user credentials and click <kbd>Sign In</kbd>. The credentials for
-the genomics Data Carpentry instances will be provided by your instructors.
-
-You should now see the RStudio interface:
-
-<img src="../fig/rstudio_session_default.png" alt="rstudio default session" style="width:1000px;"/>
-
-
-## Create an RStudio project
-
-One of the first benefits we will take advantage of in RStudio is something
-called an **RStudio Project**. An RStudio project allows you to more easily:
-
-- Save data, files, variables, packages, etc. related to a specific
-  analysis project
-- Restart work where you left off
-- Collaborate, especially if you are using version control such as [git](http://swcarpentry.github.io/git-novice/).
-
-
-1. To create a project, go to the <kbd>File</kbd> menu, and click <kbd>New Project...</kbd>.
-
-<img src="../fig/new_project_window.png" alt="rstudio default session" style="width: 600px;"/>
-
-2. In the window that opens select **New Directory**, then **New Project**. For
-"Directory name:" enter **dc_genomics_r**. For "Create project as subdirectory of", click <kbd>Browse...</kbd> and then click <kbd>Choose</kbd> which will select your home directory "~".
-
-3. Finally click <kbd>Create Project</kbd>. In the "Files" tab of your output
-pane (more about the RStudio layout in a moment), you should see an RStudio
- project file, **dc_genomics_r.Rproj**. All RStudio projects end with the
- "**.Rproj**" file extension.
-
->## Tip: Make your project more reproducible with renv
-> One of the most wonderful and also frustrating aspects of working with R is
-> managing packages. We will talk more about them, but packages (e.g. ggplot2)
-> are add-ons that extend what you can do with R. Unfortunately it is very
-> common that you may run into versions of R and/or R packages that are not
-> compatible. This may make it difficult for someone to run your R script using
-> their version of R or a given R package, and/or make it more difficult to run
-> their scripts on your machine. [renv](https://rstudio.github.io/renv/)
-> is an RStudio add-on that will associate your packages and project so that
-> your work is more portable and reproducible. To turn on renv click on
-> the <KBD>Tools</KBD> menu and select <KBD>Project Options</KBD>. Under
-> **Enviornments** check off "**Use renv with this project**" and follow any
-> installation instructions.
-{: .callout}
-
-## Creating your first R script
-
-Now that we are ready to start exploring R, we will want to keep a record of the
-commands we are using. To do this we can create an R script:
-
-Click the <kbd>File</kbd> menu and select <kbd>New File</kbd> and then
-<kbd>R Script</kbd>. Before we go any further, save your script by clicking the
-save/disk icon that is in the bar above the first line in the script editor, or
-click the <kbd>File</kbd> menu and select <kbd>save</kbd>. In the "Save File"
-window that opens, name your file **"genomics_r_basics"**. The new script
-**genomics_r_basics.R** should appear under "files" in the output pane. By
-convention, R scripts end with the file extension **.R**.
 
 ## Overview and customization of the RStudio layout
 
@@ -204,12 +103,6 @@ environment:
   for R functions and packages. "Viewer" will allow you to view local web
   content (e.g. HTML outputs). 
 
->## Tip: Uploads and downloads in the cloud
-> In the "Files" tab you can select a file and download it from your cloud
-> instance (click the "more" button) to your local computer.
-> Uploads are also possible.
-{: .callout}
-
 All of the panes in RStudio have configuration options. For example, you can
 minimize/maximize a pane, or by moving your mouse in the space between
 panes you can resize as needed. The most important customization options for
@@ -218,12 +111,43 @@ colors/themes, and more are in the <KBD>Tools</KBD> menu under
 <KBD>Global Options</KBD>.
 
 >## You are working with R
-> Although we won't be working with R at the terminal, there are lots of reasons
-> to. For example, once you have written an RScript, you can run it at any Linux
-> or Windows terminal without the need to start up RStudio. We don't want
-> you to get confused - RStudio runs R, but R is not RStudio. For more on
-> running an R Script at the terminal see this [Software Carpentry lesson](https://swcarpentry.github.io/r-novice-inflammation/05-cmdline/).
+> Although we won't be working with R at the terminal, there are lots of reasons to. For example, once you have written an RScript, you can run it at any Linux or Windows terminal without the need to start up RStudio. We don't want you to get confused - RStudio runs R, but R is not RStudio. For more on running an R Script at the terminal see this [Software Carpentry lesson](https://swcarpentry.github.io/r-novice-inflammation/05-cmdline/).
 {: .callout}
+
+## Create an RStudio project
+
+One of the first benefits we will take advantage of in RStudio is something
+called an **RStudio Project**. An RStudio project allows you to more easily:
+
+- Save data, files, variables, packages, etc. related to a specific
+  analysis project
+- Restart work where you left off
+- Collaborate, especially if you are using version control such as [git](http://swcarpentry.github.io/git-novice/).
+
+
+1. To create a project, go to the <kbd>File</kbd> menu, and click <kbd>New Project...</kbd>.
+
+<img src="../fig/new_project_window.png" alt="rstudio default session" style="width: 600px;"/>
+
+2. In the window that opens select **New Directory**, then **New Project**. For "Directory name:" enter **post-docs_genomics_r**. For "Create project as subdirectory of", click <kbd>Browse...</kbd> and then click <kbd>Choose</kbd> which will select your Documents or Desktop directory `Documents` or `Desktop`.
+
+3. Finally click <kbd>Create Project</kbd>. In the "Files" tab of your output
+pane (more about the RStudio layout in a moment), you should see an RStudio
+ project file, **post-docs_genomics_r.Rproj**. All RStudio projects end with the
+ "**.Rproj**" file extension.
+
+## Creating your first R script
+
+Now that we are ready to start exploring R, we will want to keep a record of the
+commands we are using. To do this we can create an R script:
+
+Click the <kbd>File</kbd> menu and select <kbd>New File</kbd> and then
+<kbd>R Script</kbd>. Before we go any further, save your script by clicking the
+save/disk icon that is in the bar above the first line in the script editor, or
+click the <kbd>File</kbd> menu and select <kbd>save</kbd>. In the "Save File"
+window that opens, name your file **"genomics_r_basics"**. The new script
+**genomics_r_basics.R** should appear under "files" in the output pane. By
+convention, R scripts end with the file extension **.R**.
 
 ## Getting to work with R: navigating directories
 Now that we have covered the more aesthetic aspects of RStudio, we can get to
@@ -246,7 +170,7 @@ line of your script in the header of the Source pane.
 In the console, we expect to see the following output*:
 
 ~~~
-[1] "/home/dcuser/dc_genomics_r"
+[1] "~/Documents/post-docs_genomics_r"
 ~~~
 {: .output}
 
