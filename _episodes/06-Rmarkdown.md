@@ -231,7 +231,10 @@ You should give each chunk a unique name, as they will help you to fix errors an
 
 > ## Exercise: Add code chunks to your R Markdown Document:
 >
->A) Download [gapminder data]("https://raw.githubusercontent.com/swcarpentry/r-novice-gapmin>der/gh-pages/_episodes_rmd/data/gapminder_data.csv") to the `/data` directory of your project folder
+>A) Download the gapminder data from [here](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv). 
+> 1. Download the file (CTRL + S, right mouse click -> "Save as", or File -> "Save page as")
+> 2. Make sure it's saved under the name `gapminder-FiveYearData.csv`
+> 3. Save the file in the `data/` folder within your project.
 >
 >B) Load the `ggplot2` package
 >
@@ -243,7 +246,7 @@ You should give each chunk a unique name, as they will help you to fix errors an
 >>
 >>````
 >>```{r download-gapminder-data, eval=TRUE}
->>download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapmi>n>der/gh-pages/_episodes_rmd/data/gapminder_data.csv", destfile = >>"data/gapminder_data.csv")
+>>download.file("https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv", destfile = >>"data/gapminder-FiveYearData.csv")
 >>```
 >>
 >>```{r load-ggplot2, eval=TRUE}
