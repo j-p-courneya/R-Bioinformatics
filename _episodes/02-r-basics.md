@@ -684,6 +684,7 @@ Notice in the operation above that R inserts an `NA` value to extend our vector 
 > Answer the following questions to test your knowledge of vectors
 >
 > Which of the following are true of vectors in R?
+>
 > A) All vectors have a mode **or** a length  
 > B) All vectors have a mode **and** a length  
 > C) Vectors may have different lengths  
@@ -770,12 +771,8 @@ In the square brackets you place the name of the vector followed by the comparis
 > ~~~
 > {: .output}
 >
-> If you have never coded before, this type of situation starts to expose the
-> "magic" of programming. We mentioned before that in the bracket notation you
-> take your named vector followed by brackets which contain an index:
-> **named_vector[index]**. The "magic" is that the index needs to *evaluate to*
-> a number. So, even if it does not appear to be an integer (e.g. 1, 2, 3), as
-> long as R can evaluate it, we will get a result. That our expression
+> If you have never coded before, this type of situation starts to expose the "magic" of programming. We mentioned before that in the bracket notation you take your named vector followed by brackets which contain an index:
+> **named_vector[index]**. The "magic" is that the index needs to *evaluate to* a number. So, even if it does not appear to be an integer (e.g. 1, 2, 3), as long as R can evaluate it, we will get a result. That our expression
 > `snp_positions[snp_positions > 100000000]` evaluates to a number can be seen
 > in the following situation. If you wanted to know which **index** (1, 2, 3, or
 > 4) in our vector of SNP positions was the one that was greater than
@@ -873,6 +870,7 @@ c("ACTN3","APOA5") %in% snp_genes
 > ## Review Exercise 1
 >
 > What data types/modes are the following vectors?
+>
 >    a. `snps`  
 >    b. `snp_chromosomes`  
 >    c. `snp_positions`  
@@ -925,6 +923,7 @@ c("ACTN3","APOA5") %in% snp_genes
 > ## Review Exercise 2
 >
 > Add the following values to the specified vectors:
+>
 >    a. To the `snps` vector add: 'rs662799'  
 >    b. To the `snp_chromosomes` vector add: 11  
 >    c. To the `snp_positions` vector add: 	116792991  
@@ -1010,6 +1009,7 @@ c("ACTN3","APOA5") %in% snp_genes
 > ## Review Exercise 4
 > 
 > Using indexing, create a new vector named `combined` that contains:
+>
 >    - The the 1st value in `snp_genes`
 >    - The 1st value in `snps`
 >    - The 1st value in `snp_chromosomes`
