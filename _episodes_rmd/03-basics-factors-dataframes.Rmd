@@ -410,82 +410,96 @@ where we are taking a range).
 > l. `variants[variants$REF == "A",]`
 >
 >> ## Solution
->> a.
+>>
+>> a.  
+>>
 >> ```{r}
->> variants[1,1]
+>> variants[1,1] #returns value in first row, first column
 >> ```
 >>
->> b.
+>> b.  
+>>
 >> ```{r}
->> variants[2,4]
+>> variants[2,4] #returns value in second row, fourth column
 >> ```
 >>
->> c.
+>> c.  
+>>
 >> ```{r}
->> variants[801,29]
+>> variants[801,29] #returns value in 801st row, 29th column (i.e. the vlue in last row and column - remember our dataset has 801 observations of 2 variables)
 >> ```
 >>
->> d.
+>> d.  
+>>
 >> ```{r}
->> variants[2, ]
+>> variants[2, ] #returns entire second row
 >> ```
 >>
->> e.
+>> e.  
+>>
 >> ```{r, echo = TRUE, eval = FALSE}
->> variants[-1, ]
+>> variants[-1, ] #returns all rows but the first
 >> ```
 >>
 >> ```{r, echo = FALSE, eval = TRUE}
->> head(variants[-1, ])
+>> head(variants[-1, ]) #returns first 6 rows, not including the first row.
 >> ```
 >>
->> f.
+>> f.  
+>>
 >> ```{r}
->> variants[1:4,1]
+>> variants[1:4,1] #returns first through fourth rows of the first column.
 >> ```
 >>
->> g.
+>> g.  
+>>
 >> ```{r}
->> variants[1:10,c("REF","ALT")]
+>> variants[1:10,c("REF","ALT")] #returns the first through 10th rows of te REF and ALT columns
 >> ```
 >>
->> h.
+>> h.  
+>>
 >> ```{r, echo = TRUE, eval = FALSE}
->> variants[,c("sample_id")]
+>> variants[,c("sample_id")] #returns the entire sample_id column
 >> ```
 >>
 >> ```{r, echo = FALSE, eval = TRUE}
->> head(variants[,c("sample_id")])
->>```
->>
->> i.
->> ```{r}
->> head(variants)
+>> head(variants[,c("sample_id")]) #returns the first 6 rows of the smple_id column
 >> ```
 >>
->> j.
+>> i.  
+>>
 >> ```{r}
->> tail(variants)
+>> head(variants) #returns the first 6 rows
 >> ```
 >>
->> k.
+>> j.  
+>>
+>> ```{r}
+>> tail(variants) #returns the last 6 rows
+>> ```
+>>
+>> k.  
+>>
 >> ```{r, echo = TRUE, eval = FALSE}
->> variants$sample_id
+>> variants$sample_id #returns the sample_id column as a vector
 >> ```
 >>
 >> ```{r, echo = FALSE, eval = TRUE}
->> head(variants$sample_id)
+>> head(variants$sample_id) #returns the first 6 values of the sample_id clumn as a vector
 >> ```
 >>
->> l.
+>> l.  
+>>
 >> ```{r, echo = TRUE, eval = FALSE}
->> variants[variants$REF == "A",]
+>> variants[variants$REF == "A",] #returns rows in which the REF column has te value "A" as a vector
 >> ```
 >>
 >> ```{r, echo = FALSE, eval = TRUE}
->> head(variants[variants$REF == "A",])
+>> head(variants[variants$REF == "A",]) #returns first 6 rows in which the RF column has the value "A"
 >> ```
-> {: .solution}
+>>
+>{: .solution} 
 {: .challenge}
 
 The subsetting notation is very similar to what we learned for

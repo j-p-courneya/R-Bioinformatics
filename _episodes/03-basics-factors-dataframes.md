@@ -560,10 +560,12 @@ where we are taking a range).
 > l. `variants[variants$REF == "A",]`
 >
 >> ## Solution
->> a.
+>>
+>> a.  
+>>
 >> 
 >> ~~~
->> variants[1,1]
+>> variants[1,1] #returns value in first row, first column
 >> ~~~
 >> {: .language-r}
 >> 
@@ -574,10 +576,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> b.
+>> b.  
+>>
 >> 
 >> ~~~
->> variants[2,4]
+>> variants[2,4] #returns value in second row, fourth column
 >> ~~~
 >> {: .language-r}
 >> 
@@ -588,10 +591,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> c.
+>> c.  
+>>
 >> 
 >> ~~~
->> variants[801,29]
+>> variants[801,29] #returns value in 801st row, 29th column (i.e. the vlue in last row and column - remember our dataset has 801 observations of 2 variables)
 >> ~~~
 >> {: .language-r}
 >> 
@@ -602,10 +606,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> d.
+>> d.  
+>>
 >> 
 >> ~~~
->> variants[2, ]
+>> variants[2, ] #returns entire second row
 >> ~~~
 >> {: .language-r}
 >> 
@@ -623,10 +628,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> e.
+>> e.  
+>>
 >> 
 >> ~~~
->> variants[-1, ]
+>> variants[-1, ] #returns all rows but the first
 >> ~~~
 >> {: .language-r}
 >>
@@ -663,10 +669,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> f.
+>> f.  
+>>
 >> 
 >> ~~~
->> variants[1:4,1]
+>> variants[1:4,1] #returns first through fourth rows of the first column.
 >> ~~~
 >> {: .language-r}
 >> 
@@ -677,10 +684,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> g.
+>> g.  
+>>
 >> 
 >> ~~~
->> variants[1:10,c("REF","ALT")]
+>> variants[1:10,c("REF","ALT")] #returns the first through 10th rows of te REF and ALT columns
 >> ~~~
 >> {: .language-r}
 >> 
@@ -712,10 +720,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> h.
+>> h.  
+>>
 >> 
 >> ~~~
->> variants[,c("sample_id")]
+>> variants[,c("sample_id")] #returns the entire sample_id column
 >> ~~~
 >> {: .language-r}
 >>
@@ -726,10 +735,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> i.
+>> i.  
+>>
 >> 
 >> ~~~
->> head(variants)
+>> head(variants) #returns the first 6 rows
 >> ~~~
 >> {: .language-r}
 >> 
@@ -767,10 +777,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> j.
+>> j.  
+>>
 >> 
 >> ~~~
->> tail(variants)
+>> tail(variants) #returns the last 6 rows
 >> ~~~
 >> {: .language-r}
 >> 
@@ -808,10 +819,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> k.
+>> k.  
+>>
 >> 
 >> ~~~
->> variants$sample_id
+>> variants$sample_id #returns the sample_id column as a vector
 >> ~~~
 >> {: .language-r}
 >>
@@ -822,10 +834,11 @@ where we are taking a range).
 >> ~~~
 >> {: .output}
 >>
->> l.
+>> l.  
+>>
 >> 
 >> ~~~
->> variants[variants$REF == "A",]
+>> variants[variants$REF == "A",] #returns rows in which the REF column has te value "A" as a vector
 >> ~~~
 >> {: .language-r}
 >>
@@ -868,7 +881,8 @@ where we are taking a range).
 >> 19     1             C
 >> ~~~
 >> {: .output}
-> {: .solution}
+>>
+>{: .solution} 
 {: .challenge}
 
 The subsetting notation is very similar to what we learned for
