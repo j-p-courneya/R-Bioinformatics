@@ -344,13 +344,9 @@ human_chr_number * 2
 
 ## Vectors
 
-Vectors are probably the
-most used commonly used object type in R. 
+Vectors are probably the most commonly used object type in R. 
 **A vector is a collection of values that are all of the same type (numbers, characters, etc.)**. 
-One of the most common
-ways to create a vector is to use the `c()` function - the "concatenate" or
-"combine" function. Inside the function you may enter one or more values; for
-multiple values, separate each value with a comma:
+One of the most common ways to create a vector is to use the `c()` function - the "concatenate" or "combine" function. Inside the function you may enter one or more values; for multiple values, separate each value with a comma:
 
 ```{r, purl = FALSE}
 # Create the SNP gene name vector
@@ -360,7 +356,7 @@ snp_genes <- c("OXTR", "ACTN3", "AR", "OPRM1")
 
 Vectors always have a **mode** and a **length**.
 You can check these with the `mode()` and `length()` functions respectively.
-Another useful function that gives both of these pieces of information is the
+A useful function that gives both of these pieces of information is the
 `str()` (structure) function.
 
 ```{r, purl = FALSE}
