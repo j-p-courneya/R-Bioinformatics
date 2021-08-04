@@ -204,16 +204,19 @@ Now that you have been presented some practices to keep your data projects in R 
 > {: .solution}
 {: .challenge}
 
-
-### Separate function definition and application
-
-One of the more effective ways to work with R is to start by writing the code you want to run directly in an `.R` script, and then running the selected lines (either using the keyboard shortcuts in RStudio or clicking the "Run" button) in the interactive R console.
-
-When your project is in its early stages, the initial `.R` script file usually contains many lines of directly executed code. As it matures, reusable chunks get pulled into their own functions. It's a good idea to separate these functions into two separate folders; one to store useful functions that you'll reuse across analyses and projects, and one to store the analysis scripts.
-
 ### Save the data in the data directory
 
 Now we have a good directory structure we will now place/save data files in the `data/` directory.
+
+> ## Challenge 1
+> Download the gapminder data from [here](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv).
+>
+> 1. Download the file (CTRL + S, right mouse click -> "Save as", or File -> "Save page as")
+> 2. Make sure it's saved under the name `gapminder-FiveYearData.csv`
+> 3. Save the file in the `data/` folder within your project.
+>
+> We will load and inspect these data later.
+{: .challenge}
 
 ## Creating your first R script
 
@@ -322,6 +325,8 @@ working directory is the first step to analyzing your data.
 >
 >> ## Solution
 >> In your script write `setwd("~/Documents/post-docs_genomics_r")` or `setwd("~/Desktop/post-docs_genomics_r")` and hit <KBD>Control</KBD> + <KBD>Enter</KBD>. You can also write that in the console. Notice that you need to provide an absolute path to the directory/folder you are going to set the working directory to. 
+>>
+>> Alternatively you can use the <KBD>Files</KBD> tab in `pane 4` to navigate to your project folder, when there click the <KBD>More/Gear Icon</KBD> then select `Set as Working Directory`
 > {: .solution}
 {: .challenge}
 
@@ -507,3 +512,71 @@ will show you the function's arguments and provide additional help
 for each of these arguments.
 
 <img src="../fig/studio_contexthelp2.png" alt="rstudio default session" style="width: 600px;"/>
+
+## When you have no idea where to begin
+
+If you don't know what function or package you need to use
+[CRAN Task Views](http://cran.at.r-project.org/web/views)
+is a specially maintained list of packages grouped into
+fields. This can be a good starting point.
+
+## When your code doesn't work: seeking help from your peers
+
+If you're having trouble using a function, 9 times out of 10,
+the answers you are seeking have already been answered on
+[Stack Overflow](http://stackoverflow.com/). You can search using
+the `[r]` tag. You can also Google it which typically takes you to a Stack Overflow post. 
+
+If you can't find the answer, there are a few useful functions to
+help you ask a question from your peers:
+
+
+~~~
+?dput
+~~~
+{: .language-r}
+
+Will dump the data you're working with into a format so that it can
+be copy and pasted by anyone else into their R session.
+
+
+~~~
+sessionInfo()
+~~~
+{: .language-r}
+
+
+
+~~~
+R version 4.0.4 (2021-02-15)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRblas.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] knitr_1.33
+
+loaded via a namespace (and not attached):
+[1] compiler_4.0.4 magrittr_2.0.1 tools_4.0.4    stringi_1.7.3  stringr_1.4.0 
+[6] xfun_0.24      evaluate_0.14 
+~~~
+{: .output}
+
+Will print out your current version of R, as well as any packages you
+have loaded. This can be useful for others to help reproduce and debug
+your issue.
+
+## Other ports of call
+
+* [Quick R](http://www.statmethods.net/)
+* [RStudio cheat sheets](http://www.rstudio.com/resources/cheatsheets/)
+* [Cookbook for R](http://www.cookbook-r.com/)
