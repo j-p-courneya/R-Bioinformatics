@@ -10,21 +10,15 @@ questions:
 - "What are the most common objects in R?"
 objectives:
 - "Be able to create the most common R objects including vectors"
-- "Understand that vectors have modes, which correspond to the type of data they
-  contain"
+- "Understand that vectors have modes, which correspond to the type of data they contain"
 - "Be able to use arithmetic operators on R objects"
 - "Be able to retrieve (subset), name, or replace, values from a vector"
 - "Be able to use logical operators in a subsetting operation"
 - "Understand that lists can hold data of more than one mode and can be indexed"
 keypoints:
-- "Effectively using R is a journey of months or years. Still you don't have to
-  be an expert to use R and you can start using and analyzing your data with
-  with about a day's worth of training"
-- "It is important to understand how data are organized by R in a given object
-  type and how the mode of that type (e.g. numeric, character, logical, etc.) will
-  determine how R will operate on that data."
-- "Working with vectors effectively prepares you for understanding how data are
-  organized in R."
+- "Effectively using R is a journey of months or years. Still you don't have to be an expert to use R and you can start using and analyzing your data with with about a day's worth of training"
+- "It is important to understand how data are organized by R in a given object type and how the mode of that type (e.g. numeric, character, logical, etc.) will determine how R will operate on that data."
+- "Working with vectors effectively prepares you for understanding how data are organized in R."
 source: Rmd
 ---
 
@@ -32,53 +26,38 @@ source: Rmd
 
 ## "The fantastic world of R awaits you" OR "Nobody wants to learn how to use R"
 
-Before we begin this lesson, we want you to be clear on the goal of the workshop
-and these lessons. We believe that every learner can **achieve competency
-with R**. You have reached competency when you find that you are able to
-**use R to handle common analysis challenges in a reasonable amount of time**
-(which includes time needed to look at learning materials, search for answers
-online, and ask colleagues for help). As you spend more time using R (there is
-no substitute for regular use and practice) you will find yourself gaining
-competency and even expertise. The more familiar you get, the more
-complex the analyses you will be able to carry out, with less frustration, and
-in less time - the fantastic world of R awaits you!
+Before we begin this lesson, we want you to be clear on the goal of the workshop and these lessons. We believe that every learner can **achieve competency with R**. 
+
+You have reached competency when you find that you are able to **use R to handle common analysis challenges in a reasonable amount of time** (which includes time needed to look at learning materials, search for answers online, and ask colleagues for help). As you spend more time using R (there is no substitute for regular use and practice) you will find yourself gaining competency and even expertise. The more familiar you get, the more complex the analyses you will be able to carry out, with less frustration, and in less time - the fantastic world of R awaits you!
 
 ## What these lessons will not teach you
 
-Nobody wants to learn how to use R. People want to learn how to use R to analyze
-their own research questions! Ok, maybe some folks learn R for R's sake, but
-these lessons assume that you want to start analyzing genomic data as soon as
-possible. Given this, there are many valuable pieces of information about R
-that we simply won't have time to cover. Hopefully, we will clear the hurdle of
-giving you just enough knowledge to be dangerous, which can be a high bar
-in R! We suggest you look into the additional learning materials in the tip box
-below.
+Nobody wants to learn how to use R. People want to learn how to use R to analyze their own research questions! 
+
+Ok, maybe some folks learn R for R's sake, but these lessons assume that you want to start analyzing genomic data as soon as possible. Given this, there are many valuable pieces of information about R that we simply won't have time to cover. Hopefully, we will clear the hurdle of giving you just enough knowledge to be dangerous, which can be a high bar in R! We suggest you look into the additional learning materials in the tip box below.
 
 **Here are some R skills we will *not* cover in these lessons**
 
 - How to create and work with R matrices and R lists
-- How to create and work with loops and conditional statements, and the "apply"
-  family of functions (which are super useful, read more [here](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/))
+
+- How to create and work with loops and conditional statements, and the "apply" family of functions (which are super useful, read more [here](https://www.r-bloggers.com/r-tutorial-on-the-apply-family-of-functions/))
+
 - How to do basic string manipulations (e.g. finding patterns in text using grep, replacing text)
+
 - How to plot using the default R graphic tools (we *will* cover plot creation, but will do so using the popular plotting package `ggplot2`)
+
 - How to use advanced R statistical functions
 
 > ## Tip: Where to learn more
-> The following are good resources for learning more about R. Some of them
-> can be quite technical, but if you are a regular R user you may ultimately
-> need this technical knowledge.
-> - [R for Beginners](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf):
-    By Emmanuel Paradis and a great starting point
-> - [The R Manuals](https://cran.r-project.org/manuals.html): Maintained by the
-    R project
-> - [R contributed documentation](https://cran.r-project.org/other-docs.html):
-    Also linked to the R project; importantly there are materials available in
-    several languages
+>
+> The following are good resources for learning more about R. Some of them can be quite technical, but if you are a regular R user you may ultimately need this technical knowledge.
+>
+> - [R for Beginners](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf): By Emmanuel Paradis and a great starting point
+> - [The R Manuals](https://cran.r-project.org/manuals.html): Maintained by the R project
+> - [R contributed documentation](https://cran.r-project.org/other-docs.html): Also linked to the R project; importantly there are materials available in several languages
 > - [R for Data Science](http://r4ds.had.co.nz/): A wonderful collection by
     noted R educators and developers Garrett Grolemund and Hadley Wickham
-> - [Practical Data Science for Stats](https://peerj.com/collections/50-practicaldatascistats/):
-    Not exclusively about R usage, but a nice collection of pre-prints on data science
-    and applications for R
+> - [Practical Data Science for Stats](https://peerj.com/collections/50-practicaldatascistats/): Not exclusively about R usage, but a nice collection of pre-prints on data science and applications for R
 > - [Programming in R Software Carpentry lesson](https://software-carpentry.org/lessons/):
     There are several Software Carpentry lessons in R to choose from
 {: .callout}
@@ -87,9 +66,7 @@ below.
 
 > ## Reminder
 >
-> At this point you should be coding along in the "**genomics_r_basics.R**"
-> script we created in the last episode. Writing your commands in the script
-> (and commenting it) will make it easier to record what you did and why.
+> At this point you should be coding along in the "**genomics_r_basics.R**" script we created in the last episode. Writing your commands in the script (and commenting it) will make it easier to record what you did and why.
 {: .prereq}
 
 What might be called a variable in many languages is called an **object**
@@ -98,12 +75,12 @@ in R.
 **To create an object you need:**
 
 - a name (e.g. 'a')
+
 - a value (e.g. '1')
+
 - the assignment operator ('<-')
 
-In your script, "**genomics_r_basics.R**", using the R assignment operator '<-',
-assign '1' to the object 'a' as shown. Remember to leave a comment in the line
-above (using the '#') to explain what you are doing:
+In your script, "**genomics_r_basics.R**", using the R assignment operator '<-', assign '1' to the object 'a' as shown. Remember to leave a comment in the line above (using the '#') to explain what you are doing:
 
 
 ~~~
@@ -136,9 +113,7 @@ status/warning/error messages (usually in red).
 
 In the 'Environment' window you will also get a table:
 
-|Values||
-|------|-|
-|a|1|
+<img src="../fig/environment.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="70%" style="display: block; margin: auto auto auto 0;" />
 
 The 'Environment' window allows you to keep track of the objects you have
 created in R.
