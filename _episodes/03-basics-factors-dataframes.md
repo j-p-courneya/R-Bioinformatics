@@ -11,8 +11,7 @@ questions:
 objectives:
 - "Explain the basic principle of tidy datasets"
 - "Be able to load a tabular dataset using base R functions"
-- "Be able to determine the structure of a data frame including its dimensions
-  and the datatypes of variables"
+- "Be able to determine the structure of a data frame including its dimensions and the datatypes of variables"
 - "Be able to subset/retrieve values from a data frame"
 - "Understand how R may coerce data into different modes"
 - "Be able to change the mode of an object"

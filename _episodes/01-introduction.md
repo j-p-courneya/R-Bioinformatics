@@ -204,15 +204,15 @@ Now that you have been presented some practices to keep your data projects in R 
 > {: .solution}
 {: .challenge}
 
-### Save the data in the data directory
+### Save some data in the data directory
 
 Now we have a good directory structure we will now place/save data files in the `data/` directory.
 
 > ## Challenge 1
-> Download the gapminder data from [here](https://raw.githubusercontent.com/resbaz/r-novice-gapminder-files/master/data/gapminder-FiveYearData.csv).
+> Download the `combined_tidy_vcf` data from  [here](https://osf.io/a325n/download).
 >
-> 1. Download the file (CTRL + S, right mouse click -> "Save as", or File -> "Save page as")
-> 2. Make sure it's saved under the name `gapminder-FiveYearData.csv`
+> 1. Download the file 
+> 2. Make sure it's saved under the name `combined_tidy_vcf.csv`
 > 3. Save the file in the `data/` folder within your project.
 >
 > We will load and inspect these data later.
