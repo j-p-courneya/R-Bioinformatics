@@ -46,8 +46,7 @@ first set of example data:
 **1) Keep raw data separate from analyzed data**
 
 This is principle number one because if you can't tell which files are the
-original raw data, you risk making some serious mistakes (e.g. drawing conclusion
-from data which have been manipulated in some unknown way).
+original raw data, you risk making some serious mistakes (e.g. drawing conclusion from data which have been manipulated in some unknown way). This is a redundancy but important to review!
 
 **2) Keep spreadsheet data Tidy**
 
@@ -61,9 +60,7 @@ in [this paper](https://www.jstatsoft.org/article/view/v059i10).
 
 **3) Trust but verify**
 
-Finally, while you don't need to be paranoid about data, you should have a plan
-for how you will prepare it for analysis. **This a focus of this lesson.**
-You probably already have a lot of intuition, expectations, assumptions about
+Finally, while you don't need to be paranoid about data, you should have a plan for how you will prepare it for analysis. **This a focus of this lesson.** You probably already have a lot of intuition, expectations, assumptions about
 your data - the range of values you expect, how many values should have
 been recorded, etc. Of course, as the data get larger our human ability to
 keep track will start to fail (and yes, it can fail for small data sets too).
@@ -77,14 +74,13 @@ in your analysis, and its reproducibility.
 > a spreadsheet program where changing the value of the cell leaves you one
 > "save"-click away from overwriting the original file. You have to purposely
 > use a writing function (e.g. `write.csv()`) to save data loaded into R. In
-> that case, be sure to save the manipulated data into a new file. More on this
+> that case, be sure to save the modified data into a new file. More on this
 > later in the lesson.  
  {: .callout}
 
 ## Importing tabular data into R
 There are several ways to import data into R. For our purpose here, we will
-focus on using the tools every R installation comes with (so called "base" R) to
-import a comma-delimited file containing the results of our variant calling workflow.
+focus on using the tools every R installation comes with (so called "base" R) to import a comma-delimited file containing the results of a variant calling workflow.
 We will need to load the sheet using a function called `read.csv()`.
 
 > ## Exercise: Review the arguments of the `read.csv()` function
@@ -137,7 +133,7 @@ We will need to load the sheet using a function called `read.csv()`.
 {: .challenge}
 
 Now, let's read in the file `combined_tidy_vcf.csv` which will be located in
-`/home/dcuser/.solutions/R_data/`. Call this data `variants`. The
+`~/Documents/post-docs_genomics_r/data/`. Call this data `variants`. The
 first argument to pass to our `read.csv()` function is the file path for our
 data. The file path must be in quotes and now is a good time to remember to
 use tab autocompletion. **If you use tab autocompletion you avoid typos and
@@ -146,8 +142,8 @@ errors in file paths.** Use it!
 
 ~~~
 ## read in a CSV file and save it as 'variants'
-
-variants <- read.csv("../r_data/combined_tidy_vcf.csv")
+# assuming youre in the project home directory too!
+variants <- read.csv("data/combined_tidy_vcf.csv")
 ~~~
 {: .language-r}
 
@@ -251,9 +247,9 @@ new data frame using the `data.frame()` function.
 
 
 ~~~
-## put the first three columns of variants into a new data frame called subset
+## put the first three columns and column 6 of variants into a new data frame called subset
 
-subset<-data.frame(variants[,c(1:3,6)])
+subset<- variants[,c(1:3,6)]
 ~~~
 {: .language-r}
 
@@ -279,7 +275,7 @@ str(subset)
 ~~~
 {: .output}
 
-Ok, thats a lot up unpack! Some things to notice.
+Ok, thats a lot to unpack! Some things to notice.
 
 - the object type `data.frame` is displayed in the first row along with its
   dimensions, in this case 801 observations (rows) and 4 variables (columns)
@@ -1374,8 +1370,18 @@ One common R package (a set of code with features you can download and add to
 your R installation) is the [readxl package](https://CRAN.R-project.org/package=readxl) which can open and import Excel
 files. Rather than addressing package installation this second (we'll discuss this soon!), we can take
 advantage of RStudio's import feature which integrates this package. (Note:
-this feature is available only in the latest versions of RStudio such as is
-installed on our cloud instance).
+this feature is available only in the latest versions of RStudio).
+
+Before importing the dataset lets make sure we have downloaded it to our `data/` directory in the project folder.
+
+> ## Challenge 1
+> Download the `Ecoli_metadata` data from  [here](https://osf.io/em2xs/download).
+>
+> 1. Download the file 
+> 2. Make sure it's saved under the name `Ecoli_metadata.xlsx`
+> 3. Save the file in the `data/` folder within your project.
+>
+{: .challenge}
 
 First, in the RStudio menu go to **File**, select **Import Dataset**, and
 choose **From Excel...** (notice there are several other options you can
@@ -1383,7 +1389,7 @@ explore).
 
 <img src="../fig/rstudio_import_menu.png " alt="rstudio import menu" style="width: 600px;"/>
 
-Next, under **File/Url:** click the <KBD>Browse</KBD> button and navigate to the **Ecoli_metadata.xlsx** file located at `/home/dcuser/dc_sample_data/R`.
+Next, under **File/Url:** click the <KBD>Browse</KBD> button and navigate to the **Ecoli_metadata.xlsx** file located at `data/`.
 You should now see a preview of the data to be imported:
 
 <img src="../fig/rstudio_import_screen.png " alt="rstudio import screen" style="width: 1200px;"/>
