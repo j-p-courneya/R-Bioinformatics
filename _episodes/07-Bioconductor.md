@@ -141,35 +141,6 @@ BiocManager::version()
 ~~~
 {: .output}
 
-> ## Release cycle - release and devel branches
->
-> ### Release branches
->
-> Bioconductor uses the [Git]([https://github.com/]) version control system to manage its package repository.
-> For each new Bioconductor release, a new branch is created in the Git repository; those are referred to as _release_ branches.
-> Release branches allow users to install stable versions of packages that were tested together for a given version of Bioconductor.
->
-> Development on the _release_ branches is restricted.
-> Older _release_ branches are entirely frozen, meaning that no further update is allowed on those branches.
-> When users request a package for a given version of Bioconductor, they receive the latest version of the package on the correspoding release branch.
-> 
-> Only the latest release branch allows updates from package maintainers, but those are restricted to critical bug fixes.
-> This means that for each 6-month release cycle, users can expect packages on the latest branch to be reasonably stable.
->
-> ### Devel branches
->
-> Meanwhile, the main branch of the Git repository (historically called `master`) is referred to as the _devel_ branch.
->
-> The _devel_ branch allow developers to continue updating the packages as frequently as they wish, without affecting users or disrupting workflows.
-> Typically, packages on the _devel_ branch are mainly used by other developers and the Bioconductor build system, to run tests using the latest code of every package in the Bioconductor repository.
-> However, users can also access packages on the _devel_ branch using `BiocManager::install(version = ...)` with `version` set to one minor version greater than the latest Bioconductor _release_ version (e.g. if the latest release is `3.13`, then devel is `3.14`).
->
-> ### Transition between devel and release - the release process
->
-> After a new release branch is created, the minor version of every single package on the _devel_ branch is incremented by one.
-> This includes the *[BiocVersion](https://bioconductor.org/packages/3.12/BiocVersion)* package, which marks the value of the next version of Bioconductor.
->
-{: .callout}
 
 ## Installing Bioconductor packages
 
@@ -190,6 +161,7 @@ BiocManager::install("BiocPkgTools")
 
 ~~~
 library(BiocPkgTools) #loads BiocPkgTools 
+biocExplore() #interactive  visualization of package info.
 ~~~
 {: .language-r}
 
@@ -219,18 +191,58 @@ Each package hosted on Bioconductor has a dedicated page with various resources.
 - a brief description of the package at the top, in addition to the authors, maintainer, and an associated citation
 
 - installation instructions that can be cut and paste into your R console
+
 - documentation - vignettes, reference manual, news
 
-You can gain the most traction using a package by looking at its  documentation section. Each Bioconductor package contains at least one vignette, a document that provides a task-oriented description of package functionality. Vignettes contain executable examples and are intended to be used interactively.
+You can gain the most traction using a package by looking at its  documentation section. 
 
-The reference manual contains a comprehensive listing of all the functions available in the package. This is a compilation of each function’s manual, aka help pages, which can be accessed programmatically in the R console via ?<function>.
+- Each Bioconductor package contains at least one vignette, a document that provides a task-oriented description of package functionality. Vignettes contain executable examples and are intended to be used interactively.
 
-Finally, the NEWS file contains notes from the authors which highlight changes across different versions of the package. This is a great way of tracking changes, especially functions that are added, removed, or deprecated, in order to keep your scripts current with new versions of dependent packages.
+- The reference manual contains a comprehensive listing of all the functions available in the package. This is a compilation of each function’s manual, aka help pages, which can be accessed programmatically in the R console via ?<function>.
+
+- Finally, the NEWS file contains notes from the authors which highlight changes across different versions of the package. This is a great way of tracking changes, especially functions that are added, removed, or deprecated, in order to keep your scripts current with new versions of dependent packages.
 
 Below this, the Details section covers finer nuances of the package, mostly relating to its relationship to other packages:
 
-upstream dependencies (Depends, Imports, Suggests fields): packages that are imported upon loading the given package
-downstream dependencies (Depends On Me, Imports Me, Suggests Me): packages that import the given package when loaded
-For example, we can see that an entry called simpleSingle in the Depends On Me field on the scater page takes us to a step-by-step workflow for low-level analysis of single-cell RNA-seq data.
+- upstream dependencies (_Depends, Imports, Suggests fields_): packages that are imported upon loading the given package
 
-One additional Details entry, the biocViews, is helpful for looking at how the authors annotate their package. For example, for the scater package, we see that it is associated with DataImport, DimensionReduction, GeneExpression, RNASeq, and SingleCell, to name but some of its many annotations. We cover biocViews in more detail.
+- downstream dependencies (_Depends On Me, Imports Me, Suggests Me_): packages that import the given package when loaded
+
+For example, we can see that an entry called [simpleSingle](https://bioconductor.org/packages/release/workflows/html/simpleSingleCell.html) in the Suggests Me field on the *[scater](https://bioconductor.org/packages/3.12/scater)* page takes us to a step-by-step workflow for low-level analysis of single-cell RNA-seq data.
+
+## BiocViews
+
+One additional Details entry, the [biocViews](https://bioconductor.org/packages/release/BiocViews.html), is helpful for looking at how the authors annotate their package. For example, for the *[scater](https://bioconductor.org/packages/3.12/scater)* package, we see that it is associated with DataImport, DimensionReduction, GeneExpression, RNASeq, and SingleCell, to name but some of its many annotations. 
+
+The BiocViews page provides a hierarchically organized view of annotations associated with Bioconductor packages. Under the [“Software”](https://bioconductor.org/packages/release/BiocViews.html#___Software) label for example (which is comprised of most of the Bioconductor packages), there exist many different views to explore packages. For example, we can inspect based on the associated [“Technology”](https://bioconductor.org/packages/release/BiocViews.html#___Technology), and explore [“Sequencing”](https://bioconductor.org/packages/release/BiocViews.html#___Sequencing) associated packages, and furthermore subset based on [“RNASeq”](https://bioconductor.org/packages/release/BiocViews.html#___RNASeq).
+
+Another area of particular interest is the [“Workflow”](https://bioconductor.org/packages/release/BiocViews.html#___Workflow) view, which provides Bioconductor packages that illustrate an analytical workflow. For example, the [“SingleCellWorkflow”](https://bioconductor.org/packages/release/BiocViews.html#___SingleCellWorkflow) contains the aforementioned tutorial, encapsulated in the simpleSingleCell package.
+
+## Accessing Publicly Available Data
+
+The NCBI Gene Expression Omnibus (GEO) is a public repository of microarray data. Given the rich and varied nature of this resource, it is only natural to want to apply BioConductor tools to these data. GEOquery is the bridge between GEO and BioConductor.
+
+Getting data from GEO is really quite easy. There is only one command that is needed, `getGEO`. This one function interprets its input to determine how to get the data from GEO and then parse the data into useful R data structures. Usage is quite simple. After installing GEOquery `BiocManager::install("GEOquery")`, loads the GEOquery library:
+
+
+~~~
+library(GEOquery)
+~~~
+{: .language-r}
+
+Now, you are free to access any GEO accession. In general, you will use only the GEO accession.
+
+
+~~~
+gds <- getGEO("GDS507") #provide a GEO Accession ID and assign it to an object.
+~~~
+{: .language-r}
+
+To learn more take advantage of the GEOquery vignette:
+
+
+~~~
+browseVignettes(package = "GEOquery")
+~~~
+{: .language-r}
+
