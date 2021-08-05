@@ -132,7 +132,7 @@ BiocManager::version()
 >
 > ### Release branches
 >
-> Bioconductor uses the [Git][https://github.com/] version control system to manage its package repository.
+> Bioconductor uses the [Git]([https://github.com/]) version control system to manage its package repository.
 > For each new Bioconductor release, a new branch is created in the Git repository; those are referred to as _release_ branches.
 > Release branches allow users to install stable versions of packages that were tested together for a given version of Bioconductor.
 >
@@ -172,8 +172,8 @@ BiocManager::install("BiocPkgTools")
 
 # Explore the package universe
 
-```{r, message=FALSE}
-library(BiocPkgTools)
+```{r, eval=FALSE, message=FALSE}
+library(BiocPkgTools) #loads BiocPkgTools 
 ```
 
 ## Check for updates
@@ -189,5 +189,29 @@ If everything is up-to-date, the function will simply print `TRUE`.
 BiocManager::valid()
 ```
 
+## Bioconductor Help
 
+Bioconductor stands apart from CRAN in that it requires packages to have documentation available and workflows. Bioconductor also provides a Bioconductor specific [support site](https://support.bioconductor.org/) that is a Stack Overflow type experience. The site is possible due to the contribution of developers in the Bioconductor community as well as countless dedicated volunteers answering questions. 
 
+## Bioconductor Packages
+
+Each package hosted on Bioconductor has a dedicated page with various resources. For an example, looking at the `r BiocStyle::Biocpkg("scater")` package page on Bioconductor, we see that it contains:
+
+- a brief description of the package at the top, in addition to the authors, maintainer, and an associated citation
+
+- installation instructions that can be cut and paste into your R console
+- documentation - vignettes, reference manual, news
+
+You can gain the most traction using a package by looking at its  documentation section. Each Bioconductor package contains at least one vignette, a document that provides a task-oriented description of package functionality. Vignettes contain executable examples and are intended to be used interactively.
+
+The reference manual contains a comprehensive listing of all the functions available in the package. This is a compilation of each function’s manual, aka help pages, which can be accessed programmatically in the R console via ?<function>.
+
+Finally, the NEWS file contains notes from the authors which highlight changes across different versions of the package. This is a great way of tracking changes, especially functions that are added, removed, or deprecated, in order to keep your scripts current with new versions of dependent packages.
+
+Below this, the Details section covers finer nuances of the package, mostly relating to its relationship to other packages:
+
+upstream dependencies (Depends, Imports, Suggests fields): packages that are imported upon loading the given package
+downstream dependencies (Depends On Me, Imports Me, Suggests Me): packages that import the given package when loaded
+For example, we can see that an entry called simpleSingle in the Depends On Me field on the scater page takes us to a step-by-step workflow for low-level analysis of single-cell RNA-seq data.
+
+One additional Details entry, the biocViews, is helpful for looking at how the authors annotate their package. For example, for the scater package, we see that it is associated with DataImport, DimensionReduction, GeneExpression, RNASeq, and SingleCell, to name but some of its many annotations. We cover biocViews in more detail.
