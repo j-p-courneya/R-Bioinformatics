@@ -47,15 +47,22 @@ obtaining a package written by someone else. One of the primary ways in which pa
 You can also use the RStudio interface to view and install packages. `Pane 4` (which might be different for you if you've personalized RStudio's interface) provides a `Packages` tab that allows you to see the packages you have installed and loaded at a given point in time. The `Packages` tab is broken down into your `User Library`, these are the packages you have installed throughout your R use experience, and also the `System Library` the packages that are part of the R kernel which is updated when you update your version of R.  
 
 The default packages interface for RStudio: 
+
 ```{r echo=F, out.width = '60%', fig.align="left"}
 knitr::include_graphics("../fig/rstudio_packages.png")
 ```
 
-To install a package click <KBD>Install</KBD> and type the package name of interest in the popup window. 
+
+To install a package click <KBD>Install</KBD> 
+
 
 ```{r echo=F, out.width = '30%', fig.align="left"}
 knitr::include_graphics("../fig/rstudio_installpkg_button.png")
 ```
+
+
+In the pop-up window type the package name of interest. 
+
 
 ```{r echo=F, out.width = '30%', fig.align="left"}
 knitr::include_graphics("../fig/rstudio_installpkg_popout.png")
