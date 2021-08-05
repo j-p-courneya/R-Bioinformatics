@@ -5,10 +5,10 @@ title: "Data Visualization with ggplot2"
 teaching: 60
 exercises: 30
 questions:
-- ""
-- ""
+- "How can I create publication-quality graphics in R?"
+- "How do I save a ggplot2 object I just created?"
 objectives:
-- ""
+- "To be able to use ggplot2 to generate publication quality graphics."
 - "Describe the role of data, aesthetics, and geoms in ggplot functions."
 - "Choose the correct aesthetics and alter the geom parameters for a scatter plot, histogram, or box plot."
 - "Layer multiple geometries in a single plot."
@@ -18,11 +18,9 @@ objectives:
 - "Save a ggplot to a file."
 - "List several resources for getting help with ggplot."
 - "List several resources for creating informative scientific plots."
-
 keypoints:
-- ""
-- ""
-- ""
+- "Use `ggplot2` to create plots."
+- "Think about graphics in layers: aesthetics, geometry, statistics, scale transformation, and grouping."
 source: Rmd
 ---
 
@@ -304,6 +302,27 @@ ggplot(data = variants, aes(x = POS, y = MQ, color = sample_id)) +
 > > <img src="../fig/rmd-05-scatter-challenge-2-1.png" title="plot of chunk scatter-challenge-2" alt="plot of chunk scatter-challenge-2" width="612" style="display: block; margin: auto;" />
 > {: .solution}
 {: .challenge}
+
+## Exporting the plot
+
+The `ggsave()` function allows you to export a plot created with ggplot. You can specify the dimension and resolution of your plot by adjusting the appropriate arguments (`width`, `height` and `dpi`) to create high quality graphics for publication. In order to save the plot from above, we first assign it to a variable `facet-plot-white-bg`, then tell `ggsave` to save that plot in `png` format to a directory called `results`. (Make sure you have a `results/` folder in your working directory.)
+
+
+~~~
+facet-plot-white-bg <- ggplot(data = variants, aes(x = POS, y = MQ, color = sample_id)) +
+  geom_point() +
+  labs(x = "Base Pair Position",
+       y = "Mapping Quality (MQ)") +
+  facet_grid(sample_id ~ .) +
+  theme_bw() +
+  theme(panel.grid = element_blank())
+
+ggsave(filename = "results/facet-plot-white-bg.png", plot = facet-plot-white-bg, width = 12, height = 10, dpi = 300, units = "cm")
+~~~
+{: .language-r}
+
+There are two nice things about `ggsave`. First, it defaults to the last plot, so if you omit the `plot` argument it will automatically save the last plot you created with `ggplot`. Secondly, it tries to determine the format you want to save your plot in from the file extension you provide for the filename (for example `.png` or `.pdf`). If you need to, you can specify the format explicitly in the `device` argument.
+
 
 ## Barplots
 

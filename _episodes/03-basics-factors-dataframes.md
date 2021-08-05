@@ -1363,7 +1363,7 @@ to a .csv file using the `write.csv()` function:
 
 
 ~~~
-write.csv(SRR2584863_variants, file = "../data/SRR2584863_variants.csv")
+write.csv(SRR2584863_variants, file = "data/SRR2584863_variants.csv")
 ~~~
 {: .language-r}
 
@@ -1471,6 +1471,8 @@ a true R data frame you could coerce with `as.data.frame()`.
 > H) Save the edited Ecoli_metadata data frame as "exercise_solution.csv" in your current working directory.
 >
 >> ## Solution
+>>
+>>A)
 >> 
 >> ~~~
 >> dim(Ecoli_metadata)
@@ -1483,8 +1485,8 @@ a true R data frame you could coerce with `as.data.frame()`.
 >> [1] 30  7
 >> ~~~
 >> {: .output}
->> 
->> 
+>>
+>>B)
 >> 
 >> ~~~
 >> levels(as.factor(Ecoli_metadata$cit))
@@ -1497,61 +1499,97 @@ a true R data frame you could coerce with `as.data.frame()`.
 >> [1] "minus"   "plus"    "unknown"
 >> ~~~
 >> {: .output}
->> 
->> 
->> 
->> ~~~
+>>
+>>C)
+>>
+>>~~~
 >> table(as.factor(Ecoli_metadata$cit))
->> ~~~
->> {: .language-r}
->> 
->> 
->> 
->> ~~~
->> 
->>   minus    plus unknown 
->>       9       9      12 
->> ~~~
->> {: .output}
->> 
->> 
->> 
->> ~~~
+>>~~~
+>>{: .language-r}
+>>
+>>
+>>
+>>~~~
+>>
+>>  minus    plus unknown 
+>>      9       9      12 
+>>~~~
+>>{: .output}
+>>
+>>D)
+>>
+>>
+>>~~~
 >> Ecoli_metadata[7,7]
->> ~~~
->> {: .language-r}
->> 
->> 
->> 
->> ~~~
->> # A tibble: 1 × 1
->>   genome_size
->>         <dbl>
->> 1        4.62
->> ~~~
->> {: .output}
->> 
->> 
->> 
->> ~~~
+>>~~~
+>>{: .language-r}
+>>
+>>
+>>
+>>~~~
+>># A tibble: 1 × 1
+>>  genome_size
+>>        <dbl>
+>>1        4.62
+>>~~~
+>>{: .output}
+>>
+>>E)
+>>
+>>
+>>~~~
 >> median(Ecoli_metadata$genome_size)
->> ~~~
->> {: .language-r}
->> 
->> 
->> 
->> ~~~
->> [1] 4.625
->> ~~~
->> {: .output}
->> 
->> 
->> 
->> ~~~
+>>~~~
+>>{: .language-r}
+>>
+>>
+>>
+>>~~~
+>>[1] 4.625
+>>~~~
+>>{: .output}
+>>
+>>F)
+>>
+>>
+>>~~~
 >> colnames(Ecoli_metadata)[colnames(Ecoli_metadata) == "sample"] <- "sample_id"
+>>~~~
+>>{: .language-r}
+>>
+>>~~~
+>>[1] "sample_id"  "generation" "clade"      "strain"     "cit"       
+>>[6] "run"       
+>>~~~
+>>{: .output}
+>>
+>>G)
+>>
+>>
+>>~~~
 >> Ecoli_metadata$genome_size_bp <- Ecoli_metadata$genome_size * 1000000
+>>~~~
+>>{: .language-r}
+>>
+>>~~~
+>># A tibble: 6 × 8
+>>  sample_id generation clade   strain cit     run       genome_size genome_size_bp
+>>  <chr>          <dbl> <chr>   <chr>  <chr>   <chr>           <dbl>          <dbl>
+>>1 REL606             0 NA      REL606 unknown <NA>             4.62        4620000
+>>2 REL1166A        2000 unknown REL606 unknown SRR098028        4.63        4630000
+>>3 ZDB409          5000 unknown REL606 unknown SRR098281        4.6         4600000
+>>4 ZDB429         10000 UC      REL606 unknown SRR098282        4.59        4590000
+>>5 ZDB446         15000 UC      REL606 unknown SRR098283        4.66        4660000
+>>6 ZDB458         20000 (C1,C2) REL606 unknown SRR098284        4.63        4630000
+>>~~~
+>>{: .output}
+>>
+>>H)
+>>
+>>
+>>~~~
 >> write.csv(Ecoli_metadata, file = "exercise_solution.csv")
->> ~~~
->> {: .language-r}
+>>~~~
+>>{: .language-r}
 > {: .solution}
 {: .challenge}

@@ -709,8 +709,8 @@ colnames(variants)
 We can save data to a file. We will save our `SRR2584863_variants` object
 to a .csv file using the `write.csv()` function:
 
-```{r, purl = FALSE}
-write.csv(SRR2584863_variants, file = "../data/SRR2584863_variants.csv")
+```{r, eval=FALSE, purl = FALSE}
+write.csv(SRR2584863_variants, file = "data/SRR2584863_variants.csv")
 ```
 
 The `write.csv()` function has some additional arguments listed in the help, but
@@ -805,14 +805,55 @@ a true R data frame you could coerce with `as.data.frame()`.
 > H) Save the edited Ecoli_metadata data frame as "exercise_solution.csv" in your current working directory.
 >
 >> ## Solution
+>>
+>>A)
 >> ```{r, purl = FALSE}
 >> dim(Ecoli_metadata)
->> levels(as.factor(Ecoli_metadata$cit))
+>>```
+>>
+>>B)
+>> ```{r, purl = FALSE}
+levels(as.factor(Ecoli_metadata$cit))
+```
+>>
+>>C)
+>>```{r, purl = FALSE}
 >> table(as.factor(Ecoli_metadata$cit))
+>>```
+>>
+>>D)
+>>
+>>```{r, purl = FALSE}
 >> Ecoli_metadata[7,7]
+>>```
+>>
+>>E)
+>>
+>>```{r, purl = FALSE}
 >> median(Ecoli_metadata$genome_size)
+>>```
+>>
+>>F)
+>>
+>>```{r, purl = FALSE}
 >> colnames(Ecoli_metadata)[colnames(Ecoli_metadata) == "sample"] <- "sample_id"
+>>```
+>>```{r, purl = FALSE, echo = FALSE, eval = TRUE}
+>>head(colnames(Ecoli_metadata))
+>>```
+>>
+>>G)
+>>
+>>```{r, purl = FALSE}
 >> Ecoli_metadata$genome_size_bp <- Ecoli_metadata$genome_size * 1000000
+>>```
+>>```{r, purl = FALSE, echo = FALSE, eval = TRUE}
+>>head(Ecoli_metadata)
+>>```
+>>
+>>H)
+>>
+>>```{r, echo = TRUE, eval = FALSE, purl = FALSE}
 >> write.csv(Ecoli_metadata, file = "exercise_solution.csv")
 >> ```
 > {: .solution}
